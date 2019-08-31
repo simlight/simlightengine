@@ -3,7 +3,7 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_packages, Extension
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -13,9 +13,16 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [ ]
 
-setup_requirements = [ ]
+setup_requirements = ['cython']
 
 test_requirements = [ ]
+
+ext_modules = [
+    Extension(
+        'simlightengine.simlightengine',
+        ['simlightengine/simlightengine.pyx']
+    ),
+]
 
 setup(
     author="Gavin Chan",
@@ -35,14 +42,15 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
-    include_package_data=True,
+    # include_package_data=True,
     keywords='simlightengine',
     name='simlightengine',
-    packages=find_packages(include=['simlightengine']),
+    packages=find_packages(exclude=('tests',)),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/simlight/simlightengine',
     version='0.1.0',
     zip_safe=False,
+    ext_modules=ext_modules,
 )
