@@ -74,7 +74,7 @@ cdef class Order:
     cpdef dict __dict__(self):
         return dict({
             'instmt': self.instmt,
-            **order_info
+            **self.order_info
         })
        
     def __str__(self):
