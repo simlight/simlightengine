@@ -19,8 +19,11 @@ test_requirements = [ ]
 
 ext_modules = [
     Extension(
-        'simlightengine.simlightengine',
-        ['simlightengine/simlightengine.pyx']
+        'simlightengine.base',
+        ['simlightengine/base.pyx'],
+        language='c++',
+        extra_compile_args=["-std=c++11"],
+        extra_link_args=["-std=c++11"]
     ),
 ]
 

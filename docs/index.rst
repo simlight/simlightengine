@@ -12,8 +12,7 @@ Welcome to SimLightEngine's documentation!
    contributing
    history
 
-Indices and tables
-==================
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. automodule:: simlightengine
+   :members:
+   :undoc-members:
+   :show-inheritance:
